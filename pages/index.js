@@ -2,8 +2,6 @@ import Head from 'next/head';
 import styles from './Home.module.scss';
 import clsx from 'clsx';
 
-// const inter = Inter({ subsets: ['latin'] });
-
 export default function Home() {
 	return (
 		<>
