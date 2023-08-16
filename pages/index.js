@@ -6,8 +6,8 @@ axios.defaults.baseURL = 'https://www.themealdb.com/api/json/v1/1';
 
 //www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
 
-export default function Home(props) {
-	console.log(props);
+export default function Home({ meals }) {
+	console.log(meals);
 	return (
 		<>
 			<Head>
@@ -26,9 +26,9 @@ export default function Home(props) {
 export async function getStaticProps() {
 	// props로 데이터를 넘길때에는, data안쪽의 값까지 뽑아낸 다음에 전달!!
 	const { data } = await axios.get('/filter.php?c=Seafood');
-	console.log('data fetching on Server', response.data);
+	console.log('data fetching on Server', data);
 	return {
 		props: data,
-		revalidate: 10, //이 부분 없으면 ssg
+		revalidate: 60 * 60 * 24, //이 부분 없으면 ssg
 	};
 }
