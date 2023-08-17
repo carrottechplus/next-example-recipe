@@ -1,9 +1,10 @@
 .ttl {
 	color: #333;
-	font-family: var(--font-orbitron);
+	font-family: var(--font-nanum);
 
 	a {
 		font-size: inherit;
+		font-family: inherit;
 		color: inherit;
 	}
 	&:hover {

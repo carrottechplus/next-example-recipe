@@ -2,11 +2,17 @@ import React from 'react';
 import styles from './Title.module.scss';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { Nanum_Myeongjo } from 'next/font/google';
+
+const nanum = Nanum_Myeongjo({ subsets: ['latin'], weight: ['400', '700'], preload: true, variable: '--font-nanum' });
+// variable: '--font-nanum' : 직접 사용할 변수명 등록, 해당 변수명을 활용할 경우엔 클래스에 등록하면 안됨.
 
 function Title({ children, url, style, className, type }) {
 	return (
 		<h1
-			className={clsx(styles.ttl, className, type)}
+			// nanum.className : 폰트 객체의 클래스명을 지정하면 안쪽의 모든 폰트는 해당 폰트가 디폴트로 적용됨
+			// nanum.variable  : 변수명을 활용해서 선별적으로 쓰고 싶을 때
+			className={clsx(styles.ttl, className, nanum.variable)}
 			style={url ? style : { ...style, transitionDuration: '0.3s' }}
 			onMouseEnter={(e) => (e.target.style.color = style?.hoverColor)}
 			onMouseLeave={(e) => (e.target.style.color = style?.color)}
