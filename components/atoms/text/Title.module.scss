@@ -10,4 +10,14 @@
 	&:hover {
 		color: orange;
 	}
+	&.ttl_logo {
+		font-family: var(--font-mont);
+		font-weight: 700;
+		color: red;
+		font-size: 26px;
+	}
+	&.ttl_slogan {
+		color: blue;
+		font-size: 10vw;
+	}
 }
