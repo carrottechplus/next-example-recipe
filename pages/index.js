@@ -14,9 +14,7 @@ export default function Home({ meals }) {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main className={clsx(styles.main)}>
-				<Title url={'/abc'} className={styles.txt}>
-					Hello
-				</Title>
+				<Title className={styles.txt}>Hello</Title>
 			</main>
 		</>
 	);
