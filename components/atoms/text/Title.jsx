@@ -3,14 +3,15 @@ import styles from './Title.module.scss';
 import clsx from 'clsx';
 import Link from 'next/link';
 
-function Title({ children, url, style, className }) {
+function Title({ children, url, style, className, type }) {
 	return (
-		<h1 className={clsx(styles.ttl, className)} style={url ? style : { ...style, transitionDuration: '0.3s' }}>
-			{/*
-       url 속성 유무로 자식에 링크가 있는지 파악 후
-       자식으로 링크가 있으면 > 상위요소인 h1태그에 transition 속성 제거,
-       자식으로 링크가 없으면 > transition 속성 추가
-       */}
+		<h1
+			className={clsx(styles.ttl, className, type)}
+			style={url ? style : { ...style, transitionDuration: '0.3s' }}
+			onMouseEnter={(e) => (e.target.style.color = style?.hoverColor)}
+			onMouseLeave={(e) => (e.target.style.color = style?.color)}
+			//style객체가 넘어오지 않을때를 대비해서 옵셔널 체이닝
+		>
 			{url ? (
 				<Link href={url} style={{ transitionDuration: '0.3s' }}>
 					{children}
