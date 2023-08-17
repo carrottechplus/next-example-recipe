@@ -1,0 +1,11 @@
+.ttl {
+	a {
+		font-size: inherit;
+		color: inherit;
+		transition: all 0.3s ease;
+
+		&:hover {
+			color: orange;
+		}
+	}
+}

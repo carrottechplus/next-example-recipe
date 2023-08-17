@@ -1,9 +1,9 @@
-import styles from './Visual.module.scss';
+import styles from './Pic.module.scss';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export function Visual({ imgSrc, style, imgTtl, children, priority = false, className, url }) {
+export function Pic({ imgSrc, style, imgTtl, children, priority = false, className, url }) {
 	return (
 		// 해당 아톰 컴포넌트가 호출되는 위치에서의 className props를 내부로 전달
 		<div className={clsx(styles.pic, className)} style={style}>
