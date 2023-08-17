@@ -7,9 +7,6 @@
 		font-family: inherit;
 		color: inherit;
 	}
-	&:hover {
-		color: orange;
-	}
 	&.ttl_logo {
 		font-family: var(--font-mont);
 		font-weight: 700;
@@ -19,5 +16,8 @@
 	&.ttl_slogan {
 		color: blue;
 		font-size: 10vw;
+	}
+	&:hover {
+		color: orange;
 	}
 }
