@@ -8,6 +8,7 @@ axios.defaults.baseURL = 'https://www.themealdb.com/api/json/v1/1';
 //www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
 
 export default function Home({ meals }) {
+	console.log(meals);
 	return (
 		<>
 			<Head>
@@ -18,8 +19,10 @@ export default function Home({ meals }) {
 			</Head>
 			<main className={clsx(styles.main)}>
 				<div className={clsx(styles.box)}>
-					<Visual imgSrc={meals[0].strMealThumb} imgTtl={'Hello'} priority={true} />
-					<span>World</span>
+					<Visual imgSrc={meals[0].strMealThumb} imgTtl={'Hello'} className={styles.customPic} url={'/sub'}>
+						{/* 부모 요소에서 직접 아톰컴포넌트에 클래스명을 지정해서 style을 overwrite하고 싶을 때는 클래스를 등록한 후 props로 전달 */}
+						{/* <span>World</span> */}
+					</Visual>
 				</div>
 			</main>
 		</>
