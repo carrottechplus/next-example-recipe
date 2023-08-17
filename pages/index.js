@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from './Home.module.scss';
 import clsx from 'clsx';
 import axios from 'axios';
-import Visual from '@/components/pic/Visual';
+import { Visual, VisualWithContent, VisualWithText } from '@/components/pic/Visual';
 axios.defaults.baseURL = 'https://www.themealdb.com/api/json/v1/1';
 
 //www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
@@ -20,6 +20,15 @@ export default function Home({ meals }) {
 			</Head>
 			<main className={clsx(styles.main)}>
 				<h1>MAIN</h1>
+
+				<VisualWithText
+					imgSrc={newMeals[0].strMealThumb}
+					imgTtl={newMeals[0].strMeal}
+					style={{ color: 'yellow', fontSize: 14 }}
+				/>
+				<VisualWithContent imgSrc={newMeals[0].strMealThumb}>
+					<span>{newMeals[0].strMeal}</span>
+				</VisualWithContent>
 
 				<figure className='visual'>
 					<article className='bg'>
