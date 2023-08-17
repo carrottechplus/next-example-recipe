@@ -2,14 +2,12 @@ import Head from 'next/head';
 import styles from './Home.module.scss';
 import clsx from 'clsx';
 import axios from 'axios';
-import { Visual, VisualWithContent, VisualWithText } from '@/components/pic/Visual';
+import { Visual } from '@/components/pic/Visual';
 axios.defaults.baseURL = 'https://www.themealdb.com/api/json/v1/1';
 
 //www.themealdb.com/api/json/v1/1/filter.php?c=Seafood
 
 export default function Home({ meals }) {
-	const newMeals = meals.slice(0, 6);
-
 	return (
 		<>
 			<Head>
@@ -19,29 +17,10 @@ export default function Home({ meals }) {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main className={clsx(styles.main)}>
-				<h1>MAIN</h1>
-
-				<VisualWithText
-					imgSrc={newMeals[0].strMealThumb}
-					imgTtl={newMeals[0].strMeal}
-					style={{ color: 'yellow', fontSize: 14 }}
-				/>
-				<VisualWithContent imgSrc={newMeals[0].strMealThumb}>
-					<span>{newMeals[0].strMeal}</span>
-				</VisualWithContent>
-
-				<figure className='visual'>
-					<article className='bg'>
-						{newMeals.map((item) => (
-							<Visual key={item.idMeal} imgSrc={item.strMealThumb} style={{ width: 400, height: 300 }} />
-						))}
-					</article>
-					<article className='list'>
-						{newMeals.map((item) => (
-							<h2 key={item.idMeal}>{item.strMeal}</h2>
-						))}
-					</article>
-				</figure>
+				<div className={clsx(styles.box)}>
+					<Visual imgSrc={meals[0].strMealThumb} imgTtl={'Hello'} priority={true} />
+					<span>World</span>
+				</div>
 			</main>
 		</>
 	);
