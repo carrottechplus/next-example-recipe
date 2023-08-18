@@ -1,0 +1,36 @@
+.txt {
+	color: #aaa;
+	font-family: 'arial';
+	font-size: 16px;
+	font-weight: normal;
+
+	* {
+		color: inherit;
+		font-family: inherit;
+		font-size: inherit;
+		font-weight: inherit;
+	}
+	&:hover {
+		color: orange;
+	}
+
+	.txt_menu {
+		font-family: var(--font-nanum);
+		font-style: italic;
+		font-weight: 400;
+
+		&:hover {
+			color: orange;
+		}
+	}
+
+	.txt_breadcrumb {
+		color: #888;
+		font-size: 12px;
+		font-style: normal;
+
+		&.on {
+			color: orange;
+		}
+	}
+}

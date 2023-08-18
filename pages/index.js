@@ -14,7 +14,7 @@ export default function Home({ meals }) {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main className={clsx(styles.main)}>
-				<Title tag={'h3'} type={'logo'} style={{ color: '#ddd', hoverColor: 'hotpink' }} url={'/abc'}>
+				<Title tag={'h3'} type={'logo'} url={'/abc'}>
 					TEST
 				</Title>
 			</main>
