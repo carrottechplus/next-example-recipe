@@ -3,6 +3,7 @@ import styles from './Home.module.scss';
 import clsx from 'clsx';
 import axios from 'axios';
 import Title from '@/components/atoms/text/Title';
+import Text from '@/components/atoms/text/Text';
 
 export default function Home({ meals }) {
 	return (
@@ -14,9 +15,9 @@ export default function Home({ meals }) {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main className={clsx(styles.main)}>
-				<Title tag={'h3'} type={'logo'} url={'/abc'}>
-					TEST
-				</Title>
+				<Text type={'breadcrumb'} tag={'span'} isOn={true}>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, reprehenderit.
+				</Text>
 			</main>
 		</>
 	);
