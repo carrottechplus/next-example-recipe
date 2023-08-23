@@ -4,8 +4,14 @@ import clsx from 'clsx';
 import axios from 'axios';
 import Title from '@/components/atoms/text/Title';
 import Text from '@/components/atoms/text/Text';
+import { Pic } from '@/components/atoms/pic/Pic';
 
 export default function Home({ meals }) {
+	console.log(meals);
+	// idMeal
+	// strMeal
+	// strMealThumb
+
 	return (
 		<>
 			<Head>
@@ -18,6 +24,9 @@ export default function Home({ meals }) {
 				<Text type={'breadcrumb'} tag={'span'} isOn={true}>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, reprehenderit.
 				</Text>
+				<div className={clsx(styles.picFrame)}>
+					<Pic imgSrc={meals[0].strMealThumb} />
+				</div>
 			</main>
 		</>
 	);
