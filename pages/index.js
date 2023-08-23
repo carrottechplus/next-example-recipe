@@ -6,12 +6,13 @@ import Title from '@/components/atoms/text/Title';
 import Text from '@/components/atoms/text/Text';
 import { Pic } from '@/components/atoms/pic/Pic';
 
-export default function Home({ meals }) {
-	console.log(meals);
+export default function Home({ meals, category }) {
 	// idMeal
 	// strMeal
 	// strMealThumb
 
+	console.log(category, '!category!');
+	console.log(meals, '!meals!');
 	return (
 		<>
 			<Head>
@@ -20,23 +21,28 @@ export default function Home({ meals }) {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<main className={clsx(styles.main)}>
-				<Text type={'breadcrumb'} tag={'span'} isOn={true}>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, reprehenderit.
-				</Text>
-				<div className={clsx(styles.picFrame)}>
-					<Pic imgSrc={meals[0].strMealThumb} />
-				</div>
-			</main>
+			<main className={clsx(styles.main)}>test</main>
 		</>
 	);
 }
-
+// revalidate 시간마다 다시 페이지를 재빌드해서 pre-render 처리 시 가져올 카테고리명을 변경해서 새로운 데이터 패칭
+// idCategory
+// strCategory
+// strCategoryThumb
+// strCategoryDescription
 export async function getStaticProps() {
-	const { data } = await axios.get('/filter.php?a=American');
-	console.log('data fetching on Server', data);
+	const list = [];
+	const { data: obj } = await axios.get('/categories.php');
+	const items = obj.categories;
+	items.forEach((el) => list.push(el.strCategory));
+	const newList = list.filter((el) => el !== 'Goat' && el !== 'Vegan' && el !== 'Starter');
+
+	const randomNum = Math.floor(Math.random() * newList.length);
+	const { data } = await axios.get(`/filter.php?c=${newList[randomNum]}`);
+
+	// console.log('data fetching on Server', data);
 	return {
-		props: data,
-		revalidate: 60 * 60 * 24,
+		props: { ...data, category: newList[randomNum] },
+		revalidate: 10,
 	};
 }
