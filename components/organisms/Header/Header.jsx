@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import styles from './Header.module.scss';
 import Title from '@/components/atoms/text/Title';
-import Navbar from '@/components/molecules/Navbar';
+import Navbar from '@/components/molecules/NavBar/Navbar';
 
 function Header() {
 	return (

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Header from '../organisms/Header/Header';
+import Header from '../../organisms/Header/Header';
 import clsx from 'clsx';
 import styles from './Layout.module.scss';
 

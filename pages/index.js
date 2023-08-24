@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import axios from 'axios';
-import Layout from '@/components/template/Layout';
+import Layout from '@/components/template/Layout/Layout';
 
 export default function Home({ meals, category }) {
 	// idMeal
