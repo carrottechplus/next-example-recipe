@@ -23,7 +23,7 @@ export default function Home({ meals, category }) {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main className={clsx(styles.main)}>
-				<Navbar names={['Recipe', 'Favorite']} />
+				<Navbar names={['Find Recipe', 'My Favorite']} gap={50} />
 			</main>
 		</>
 	);
