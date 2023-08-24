@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../../organisms/Header/Header';
 import clsx from 'clsx';
 import styles from './Layout.module.scss';
+import Footer from '@/components/organisms/Header/Footer/Footer';
 
 function Layout({ children }) {
 	return (
@@ -15,6 +16,7 @@ function Layout({ children }) {
 			<main className={clsx(styles.layout)}>
 				<Header />
 				<section className={clsx(styles.content)}>{children}</section>
+				<Footer />
 			</main>
 		</>
 	);
