@@ -1,16 +1,11 @@
 import Head from 'next/head';
-import styles from './Home.module.scss';
-import clsx from 'clsx';
 import axios from 'axios';
-import Header from '@/components/organisms/Header/Header';
 
 export default function Home({ meals, category }) {
 	// idMeal
 	// strMeal
 	// strMealThumb
 
-	console.log(category, '!category!');
-	console.log(meals, '!meals!');
 	return (
 		<>
 			<Head>
@@ -19,17 +14,11 @@ export default function Home({ meals, category }) {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<main className={clsx(styles.main)}>
-				<Header />
-			</main>
 		</>
 	);
 }
+
 // revalidate 시간마다 다시 페이지를 재빌드해서 pre-render 처리 시 가져올 카테고리명을 변경해서 새로운 데이터 패칭
-// idCategory
-// strCategory
-// strCategoryThumb
-// strCategoryDescription
 export async function getStaticProps() {
 	const list = [];
 	const { data: obj } = await axios.get('/categories.php');
