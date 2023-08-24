@@ -6,9 +6,9 @@ function Navbar({ names, gap }) {
 	return (
 		<nav className={clsx(styles.gnb)} style={{ gap: gap }}>
 			{names.map((el) => {
-				const url = el.toLowerCase().split(' ').join('');
+				const url = el.toLowerCase().split(' ').join('-');
 				return (
-					<Text key={el} url={`/${el}`} type={'menu'} tag={'span'}>
+					<Text key={el} url={`/${url}`} type={'menu'} tag={'span'}>
 						{el}
 					</Text>
 				);
