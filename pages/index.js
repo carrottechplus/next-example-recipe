@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import axios from 'axios';
 import Layout from '@/components/template/Layout/Layout';
+import SwiperWrap from '@/components/organisms/Swiper/Swiper';
 
 export default function Home({ meals, category }) {
 	// idMeal
@@ -12,7 +13,7 @@ export default function Home({ meals, category }) {
 			<Head>
 				<title>Main Page</title>
 			</Head>
-			<h2>Main page</h2>
+			<SwiperWrap recipe={meals} category={category} />
 		</>
 	);
 }
