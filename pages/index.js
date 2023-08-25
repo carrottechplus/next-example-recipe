@@ -13,7 +13,7 @@ export default function Home({ meals, category }) {
 			<Head>
 				<title>Main Page</title>
 			</Head>
-			<SwiperWrap recipe={meals} category={category} />
+			<SwiperWrap recipe={meals.slice(0, 6)} category={category} />
 		</>
 	);
 }
