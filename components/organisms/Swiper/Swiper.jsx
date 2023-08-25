@@ -5,6 +5,7 @@ import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/css';
 import Title from '@/components/atoms/text/Title';
 import { useState } from 'react';
+import Slider from '@/components/molecules/Slider/Slider';
 
 //Next에서는 autoplay, pagination, navigation 기능을 활성화 하기 위해서는 아래 코드와 같이 SwiperCore.use 사용해야함.
 SwiperCore.use([Autoplay]);
@@ -12,7 +13,6 @@ SwiperCore.use([Autoplay]);
 //npm i swiper@9
 function SwiperWrap({ recipe, category }) {
 	const [Index, setIndex] = useState(0);
-	console.log(Index);
 
 	return (
 		<figure className={clsx(styles.visual)}>
@@ -22,6 +22,7 @@ function SwiperWrap({ recipe, category }) {
 			>
 				{category}
 			</Title>
+			<Slider data={recipe} index={Index} />
 			<Swiper
 				className={clsx(styles.swiper)}
 				modules={[Autoplay]}
@@ -39,6 +40,8 @@ function SwiperWrap({ recipe, category }) {
 					//해당 함수에는 파라미터로 현재 컴포넌트 요소가 활성화되어있는 구분할 수 있는 객체가 전달
 					<SwiperSlide key={item.idMeal} className={clsx(styles.swiperSlide)}>
 						{({ isActive }) => {
+							// isActive = 활성화된것 확인 가능
+							// isActive, isPrev, isNext, isVisible
 							return (
 								<div className={clsx(isActive && styles.on)}>
 									<Title tag={'h3'} url={'/'} type={'slogan'}>
