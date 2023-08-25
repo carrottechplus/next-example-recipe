@@ -6,6 +6,7 @@ import 'swiper/css';
 import Title from '@/components/atoms/text/Title';
 import { useState } from 'react';
 import Slider from '@/components/molecules/Slider/Slider';
+import Counter from '@/components/molecules/Counter/Counter';
 
 //Next에서는 autoplay, pagination, navigation 기능을 활성화 하기 위해서는 아래 코드와 같이 SwiperCore.use 사용해야함.
 SwiperCore.use([Autoplay]);
@@ -22,6 +23,7 @@ function SwiperWrap({ recipe, category }) {
 			>
 				{category}
 			</Title>
+			<Counter index={Index} len={recipe.length} />
 			<Slider data={recipe} index={Index} />
 			<Swiper
 				className={clsx(styles.swiper)}
