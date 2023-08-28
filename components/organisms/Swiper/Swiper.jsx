@@ -46,7 +46,11 @@ function SwiperWrap({ recipe, category }) {
 							// isActive, isPrev, isNext, isVisible
 							return (
 								<div className={clsx(isActive && styles.on)}>
-									<Title tag={'h3'} url={'/'} type={'slogan'}>
+									<Title
+										tag={'h3'}
+										url={`/find-recipe/${item.idMeal}?name=${item.strMeal}`}
+										type={'slogan'}
+									>
 										{item.strMeal.length > 25 ? item.strMeal.substr(0, 25) : item.strMeal}
 									</Title>
 								</div>
