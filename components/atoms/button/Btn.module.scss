@@ -1,0 +1,16 @@
+.btn {
+	display: inline-block;
+	padding: 5px 10px;
+	border: 1px solid #666;
+	background: transparent;
+	font: 12px/1 'arial';
+	color: #bbb;
+	cursor: pointer;
+	transition: 0.4s;
+
+	&:hover,
+	&.on {
+		color: orange;
+		border: 1px solid orange;
+	}
+}
