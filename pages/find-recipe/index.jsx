@@ -5,6 +5,7 @@ import Category from '@/components/molecules/Category/Category';
 import { useRecipeByCategory } from '@/hooks/useRecipe';
 import { useState } from 'react';
 import { useDebounce } from '@/hooks/useDebounce';
+import Card from '@/components/molecules/Card/Card';
 
 export default function Recipe({ categories }) {
 	// console.log(categories);
@@ -25,6 +26,7 @@ export default function Recipe({ categories }) {
 			</Head>
 			<section className={styles.recipePage}>
 				<Category items={categories} onClick={setSelected} />
+				<Card />
 			</section>
 		</>
 	);
