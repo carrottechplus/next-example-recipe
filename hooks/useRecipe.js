@@ -9,6 +9,8 @@ const getRecipeByCategory = async ({ queryKey }) => {
 	return data?.meals || [];
 };
 
+//useRecipeByCategory (자주활용되는 리액트 기능을 패키징해서 hook형태로 만들어놓은 함수)
+//인수가 전달되면 해당값을 활용해서 react-query를 이용하여 비동기서버데이터를 호출하고 해당 결과값을 객체형태로 리턴하는 함수
 export const useRecipeByCategory = (SelectedCategory) => {
 	return useQuery(['RecipeByCategory', SelectedCategory], getRecipeByCategory, {
 		refetchOnMount: false,
