@@ -17,7 +17,8 @@ export default function Recipe({ categories }) {
 	const DebouncedSelected = useDebounce(Selected);
 
 	// 해당 State값이 바뀔때 마다 react-query 훅이 호출되면서 새로운 데이터 패칭
-	const { data, isSuccess } = useRecipeByCategory(DebouncedSelected);
+	const { data: dataByCategory, isSuccess: isCategory } = useRecipeByCategory(DebouncedSelected);
+	console.log(dataByCategory);
 
 	return (
 		<>
@@ -26,7 +27,7 @@ export default function Recipe({ categories }) {
 			</Head>
 			<section className={styles.recipePage}>
 				<Category items={categories} onClick={setSelected} />
-				<Card />
+				{isCategory && dataByCategory.map((el) => <Card key={el.idMeal} imgSrc={el.strMealThumb} />)}
 			</section>
 		</>
 	);
