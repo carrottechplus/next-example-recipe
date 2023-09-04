@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 import styles from './Card.module.scss';
 import { Pic } from '@/components/atoms/pic/Pic';
+import Text from '@/components/atoms/text/Text';
 
-function Card({ imgSrc }) {
+function Card({ txt, imgSrc, className, url }) {
 	return (
 		<article className={clsx(styles.card)}>
-			<Pic imgSrc={imgSrc} />
+			{imgSrc && <Pic imgSrc={imgSrc} />}
+			{txt && <Text url={url}>{txt}</Text>}
 		</article>
 	);
 }

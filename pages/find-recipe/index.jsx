@@ -27,7 +27,7 @@ export default function Recipe({ categories }) {
 			</Head>
 			<section className={styles.recipePage}>
 				<Category items={categories} onClick={setSelected} />
-				{isCategory && dataByCategory.map((el) => <Card key={el.idMeal} imgSrc={el.strMealThumb} />)}
+				{isCategory && dataByCategory.map((el) => <Card key={el.idMeal} imgSrc={el.strMealThumb} url={`/find-recipe/${el.idMeal}`} txt={el.strMeal} />)}
 			</section>
 		</>
 	);
