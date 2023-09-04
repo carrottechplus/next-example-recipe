@@ -15,8 +15,9 @@ export const useRecipeByCategory = (SelectedCategory) => {
 	return useQuery(['RecipeByCategory', SelectedCategory], getRecipeByCategory, {
 		refetchOnMount: false,
 		refetchOnWindowFocus: false,
-		cacheTime: 0,
-		staleTime: 0,
+		// 자주 바뀌지 않는 서버 데이터의 경우는 아래 Time을 길게 지정해서(24시간) 동일한 데이터 refetching 방지
+		cacheTime: 1000 * 60 * 60 * 24,
+		staleTime: 1000 * 60 * 60 * 24,
 		retry: 3, // 데이터 요청 시도 횟수 (디폴트 3, 네트워크 상황이 안좋을때 재시도 횟수 늘림)
 
 		// enabled값에는 truthy, falsy 값이 적용안되고, 직접 boolean값을 생성해서 지정
