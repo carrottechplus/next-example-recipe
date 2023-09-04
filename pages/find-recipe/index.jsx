@@ -1,11 +1,13 @@
-import Head from 'next/head';
-import styles from './style.module.scss';
 import axios from 'axios';
+import Head from 'next/head';
+import clsx from 'clsx';
+import styles from './style.module.scss';
 import Category from '@/components/molecules/Category/Category';
 import { useRecipeByCategory } from '@/hooks/useRecipe';
 import { useState } from 'react';
 import { useDebounce } from '@/hooks/useDebounce';
 import Card from '@/components/molecules/Card/Card';
+import Title from '@/components/atoms/text/Title';
 
 export default function Recipe({ categories }) {
 	// console.log(categories);
@@ -27,7 +29,13 @@ export default function Recipe({ categories }) {
 			</Head>
 			<section className={styles.recipePage}>
 				<Category items={categories} onClick={setSelected} />
-				{isCategory && dataByCategory.map((el) => <Card key={el.idMeal} imgSrc={el.strMealThumb} url={`/find-recipe/${el.idMeal}`} txt={el.strMeal} />)}
+				<Title type={'slogan'} className={clsx(styles.ttlCategory)}>
+					{DebouncedSelected}
+				</Title>
+				<div className={clsx(styles.listFrame)}>
+					{isCategory &&
+						dataByCategory.map((el) => <Card key={el.idMeal} imgSrc={el.strMealThumb} url={`/find-recipe/${el.idMeal}`} txt={`category --- ${el.strMeal}`} className={clsx(styles.card)} />)}
+				</div>
 			</section>
 		</>
 	);
