@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useDebounce } from '@/hooks/useDebounce';
 import Card from '@/components/molecules/Card/Card';
 import Title from '@/components/atoms/text/Title';
+import SearchBar from '@/components/molecules/SearchBar/SearchBar';
 
 export default function Recipe({ categories }) {
 	// console.log(categories);
@@ -33,6 +34,7 @@ export default function Recipe({ categories }) {
 				<Title type={'slogan'} className={clsx(styles.ttlCategory)}>
 					{DebouncedSelected}
 				</Title>
+				<SearchBar isBtn={false} placeholder={'search'} />
 				<div className={clsx(styles.listFrame)}>
 					{isCategory && dataByCategory.map((el) => <Card key={el.idMeal} imgSrc={el.strMealThumb} url={`/find-recipe/${el.idMeal}`} txt={el.strMeal} className={clsx(styles.card)} />)}
 				</div>
